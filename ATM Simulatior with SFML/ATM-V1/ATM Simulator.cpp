@@ -10,6 +10,7 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/basic_file_sink.h>
 
+// Class representing a user
 class User {
 public:
     User(const std::string& username, const std::string& password)
@@ -23,6 +24,7 @@ public:
         return loggedIn;
     }
 
+    // Method to attempt login
     bool login(const std::string& enteredPassword) {
         if (password == enteredPassword) {
             loggedIn = true;
@@ -31,6 +33,7 @@ public:
         return false;
     }
 
+    // Method to logout
     void logout() {
         loggedIn = false;
     }
@@ -41,6 +44,7 @@ private:
     bool loggedIn;
 };
 
+// Class representing a bank account
 class Account {
 public:
     Account(const std::string& accountHolder, double balance) : accountHolder(accountHolder), balance(balance) {}
@@ -53,6 +57,7 @@ public:
         return balance;
     }
 
+    // Method to deposit money into the account
     bool deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -61,6 +66,7 @@ public:
         return false;
     }
 
+    // Method to withdraw money from the account
     bool withdraw(double amount) {
         if (balance >= amount && amount > 0) {
             balance -= amount;
@@ -69,6 +75,7 @@ public:
         return false;
     }
 
+    // Method to transfer money to another account
     bool transfer(Account& destination, double amount) {
         if (withdraw(amount)) {
             destination.deposit(amount);
@@ -82,12 +89,15 @@ private:
     double balance;
 };
 
+// Class representing a database of accounts
 class AccountDatabase {
 public:
+    // Method to add an account to the database
     void addAccount(const std::string& accountHolder, double balance) {
         accounts.emplace_back(accountHolder, balance);
     }
 
+    // Method to check if an account exists
     bool accountExists(const std::string& accountHolder) const {
         for (const auto& account : accounts) {
             if (account.getAccountHolder() == accountHolder) {
@@ -97,6 +107,7 @@ public:
         return false;
     }
 
+    // Method to get an account by its holder name
     Account* getAccount(const std::string& accountHolder) {
         for (auto& account : accounts) {
             if (account.getAccountHolder() == accountHolder) {
@@ -110,6 +121,7 @@ private:
     std::vector<Account> accounts;
 };
 
+// Function to generate a random key
 std::string generateRandomKey(int length = 16) {
     static const char charset[] = "0123456789"
                                     "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
