@@ -3,26 +3,31 @@
 #include "include/Main.h"
 #include "include/Ai_module.h"
 
-Move bestMove;
-win_pos position1;
-win_pos position2;
-win_pos position3;
+Move bestMove; // Stores the best move for the AI
+win_pos position1; // Represents the position of winning move
+win_pos position2; // Represents the position of winning move
+win_pos position3; // Represents the position of winning move
 
 Base::Base() {
+    // Initialize winning positions to -1
     position1.row = position2.row = position3.row = -1;
     position1.col = position2.col = position3.col = -1;
 }
 
+// Displays the game UI
 void Base::showUi(bool playerTurn) {
+    // Array to store the board state
     int size = 9;
-    char Uib[size];
-    char UIchoose[size];
+    char Uib[size]; // Actual board state
+    char UIchoose[size]; // Available choices for the player
 
+    // Populate arrays with board state and available choices
     for (int i = 1; i < 10; i++) {
         Uib[i - 1] = *translateBoard(p, i);
         UIchoose[i - 1] = *translateBoard(num_p, i);
     }
 
+    // Display the UI
     std::cout << std::endl;
     if (isFinished) {
         std::cout << "          Final match               Winner moves       \n\n";
@@ -52,6 +57,7 @@ void Base::showUi(bool playerTurn) {
     }
 }
 
+// Determines whose turn it is
 char Base::showTurn(const std::string st) {
     if (st == "pl")
         return symbol.opponent;
@@ -59,7 +65,9 @@ char Base::showTurn(const std::string st) {
     return symbol.Bot;
 }
 
+// Checks if there's a winner or if the game is a draw
 void Base::checkWinner() {
+    // Check rows and columns for a winning combination
     for (int i = 0; i < 3; i++) {
         if (p[i][0] == p[i][1] && p[i][1] == p[i][2] && p[i][0] != '_') {
             isFinished = true;
@@ -80,6 +88,7 @@ void Base::checkWinner() {
         }
     }
 
+    // Check diagonals for a winning combination
     if (p[0][0] == p[1][1] && p[1][1] == p[2][2] && p[0][0] != '_') {
         isFinished = true;
         position1.row = position1.col = 0;
@@ -101,6 +110,7 @@ void Base::checkWinner() {
     }
 }
 
+// Gets the position where the player wants to place their move
 int Base::getPosition() {
     std::string ask;
     int pos;
@@ -126,11 +136,13 @@ int Base::getPosition() {
     }
 }
 
+// Takes action based on the player type and position chosen
 void Base::takeAction(Players playerType, int position) {
     *translateBoard(p, position) = playerType.opponent;
     *translateBoard(num_p, position) = ' ';
 }
 
+// Player's move execution
 void Base::playerExecution() {
     system("clear");
     showUi(true);
@@ -141,6 +153,7 @@ void Base::playerExecution() {
     }
 }
 
+// AI's move execution
 void Base::bot_execute() {
     system("clear");
     showUi();
@@ -172,6 +185,7 @@ void Base::bot_execute() {
     }
 }
 
+// Determines whose turn it is and proceeds accordingly
 void Base::lead_road(char turn) {
     if (turn == symbol.Bot) {
         bot_execute();
@@ -180,6 +194,7 @@ void Base::lead_road(char turn) {
     }
 }
 
+// Sets the winner of the game
 void Base::set_winner(char result) {
     std::cout << "\033[33m";
 
@@ -205,6 +220,7 @@ void Base::set_winner(char result) {
     }
 }
 
+// Displays the winning moves
 void Base::showWin() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -218,6 +234,7 @@ void Base::showWin() {
     num_p[position3.row][position3.col] = '*';
 }
 
+// Starts the game
 void Base::start_game() {
     char ask = '_';
     std::cout << "\033[31m";
@@ -245,6 +262,7 @@ void Base::start_game() {
     }
 }
 
+// Resets the game
 void Base::reset_game() {
     std::string ask_again = "default";
     bool play_again = false;
@@ -275,12 +293,14 @@ void Base::reset_game() {
         system("clear");
         isFinished = false;
 
+        // Reset the game board
         for (auto &row : p) {
             for (auto &elem : row) {
                 elem = '_';
             }
         }
 
+        // Reset the number board
         for (auto &row_p : num_p) {
             for (auto &elem_p : row_p) {
                 elem_p = static_cast<char>(k + '0');
@@ -292,6 +312,7 @@ void Base::reset_game() {
     }
 }
 
+// Main function
 int main() {
     Base game;
     game.start_game();
