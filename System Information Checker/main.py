@@ -39,12 +39,14 @@ def system_information(options=None):
     print(f"Mac-Address: {':'.join(re.findall('..', '%012x' % uuid.getnode()))}")
 
     if options is None or "boot_time" in options:
+        # Retrieve and display boot time
         print("="*40, "Boot Time", "="*40)
         boot_time_timestamp = psutil.boot_time()
         bt = datetime.fromtimestamp(boot_time_timestamp)
         print(f"Boot Time: {bt.year}/{bt.month}/{bt.day} {bt.hour}:{bt.minute}:{bt.second}")
 
     if options is None or "cpu_info" in options:
+        # Retrieve and display CPU information
         print("="*40, "CPU Info", "="*40)
         print("Physical cores:", psutil.cpu_count(logical=False))
         print("Total cores:", psutil.cpu_count(logical=True))
@@ -58,6 +60,7 @@ def system_information(options=None):
         print(f"Total CPU Usage: {psutil.cpu_percent()}%")
 
     if options is None or "memory_info" in options:
+        # Retrieve and display memory information
         print("="*40, "Memory Information", "="*40)
         svmem = psutil.virtual_memory()
         print(f"Total Memory: {get_size(svmem.total)}")
@@ -66,6 +69,7 @@ def system_information(options=None):
         print(f"Memory Usage Percentage: {svmem.percent}%")
 
     if options is None or "swap_memory" in options:
+        # Retrieve and display swap memory information
         print("="*20, "SWAP", "="*20)
         swap = psutil.swap_memory()
         print(f"Total Swap Memory: {get_size(swap.total)}")
@@ -74,6 +78,7 @@ def system_information(options=None):
         print(f"Swap Memory Usage Percentage: {swap.percent}%")
 
     if options is None or "disk_info" in options:
+        # Retrieve and display disk information
         print("="*40, "Disk Information", "="*40)
         print("Partitions and Usage:")
         partitions = psutil.disk_partitions()
@@ -94,6 +99,7 @@ def system_information(options=None):
         print(f"Total write: {get_size(disk_io.write_bytes)}")
 
     if options is None or "network_info" in options:
+        # Retrieve and display network information
         print("="*40, "Network Information", "="*40)
         if_addrs = psutil.net_if_addrs()
         for interface_name, interface_addresses in if_addrs.items():
@@ -113,4 +119,5 @@ def system_information(options=None):
 
 
 if __name__ == "__main__":
+    # Add more options or remove some to customize the output
     system_information(options=["boot_time", "cpu_info", "memory_info", "swap_memory", "disk_info", "network_info"])
