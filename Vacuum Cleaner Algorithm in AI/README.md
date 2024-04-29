@@ -34,19 +34,7 @@ The implementation consists of two main components:
 
 ## Usage
 
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   ```
-
-2. Install the required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Run the main script:
+Run the main script:
 
    ```bash
    python vacuum_cleaner_algorithm.py
