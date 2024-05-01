@@ -365,23 +365,49 @@ class SystemInfoApp(QMainWindow):
 
         elif option == "System Optimization and Tuning":
             # Provide options for optimizing system performance
-            ax.text(0.5, 0.5, "System Optimization and Tuning\nOptions will be displayed here.", 
-                    horizontalalignment='center', verticalalignment='center', fontsize=12)
-            ax.set_title('System Optimization and Tuning')
-
+            optimization_options = [
+                "Adjust CPU Governor Settings",
+                "Tune Disk I/O Scheduler",
+                "Optimize Memory Allocation",
+                "Fine-tune Network Parameters"
+            ]
+            ax.clear()
+            ax.set_title('System Optimization and Tuning Options')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            for i, opt in enumerate(optimization_options, start=1):
+                ax.text(0.5, 1-0.1*i, f"{i}. {opt}", horizontalalignment='center', verticalalignment='center', fontsize=12)
 
         elif option == "Advanced Logging and Reporting":
             # Enable logging and generate comprehensive reports
-            ax.text(0.5, 0.5, "Advanced Logging and Reporting\nLogging and reporting options will be displayed here.", 
-                    horizontalalignment='center', verticalalignment='center', fontsize=12)
-            ax.set_title('Advanced Logging and Reporting')
-
-
+            logging_options = [
+                "Enable Verbose System Logging",
+                "Log Kernel Events",
+                "Log Application Events",
+                "Customize Log Rotation Policies"
+            ]
+            ax.clear()
+            ax.set_title('Advanced Logging and Reporting Options')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            for i, opt in enumerate(logging_options, start=1):
+                ax.text(0.5, 1-0.1*i, f"{i}. {opt}", horizontalalignment='center', verticalalignment='center', fontsize=12)
+        
         elif option == "Remote Monitoring and Management":
             # Provide options for remote monitoring and management
-            ax.text(0.5, 0.5, "Remote Monitoring and Management\nRemote monitoring options will be displayed here.", 
-                    horizontalalignment='center', verticalalignment='center', fontsize=12)
-            ax.set_title('Remote Monitoring and Management')
+            remote_options = [
+                "Setup SSH with Key-based Authentication",
+                "Deploy Monitoring Agents on Remote Systems",
+                "Implement Remote Script Execution",
+                "Configure Firewall for Secure Remote Access"
+            ]
+            ax.clear()
+            ax.set_title('Remote Monitoring and Management Options')
+            ax.set_xticks([])
+            ax.set_yticks([])
+            for i, opt in enumerate(remote_options, start=1):
+                ax.text(0.5, 1-0.1*i, f"{i}. {opt}", horizontalalignment='center', verticalalignment='center', fontsize=12)
+
 
 
         self.canvas.draw()
