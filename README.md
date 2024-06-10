@@ -31,6 +31,10 @@ Welcome to the Awesome Code Projects repository! This repository contains a coll
 7. **Tic Tac Toe AI**
    - Description: A Tic Tac Toe game with an AI opponent implemented using minimax algorithm.
    - Author: Awrsha
+  
+8. **Vacuum Cleaner Algorithm in AI**
+   - Description: he algorithm is designed to enable a virtual vacuum cleaner agent to learn how to efficiently clean a grid-based environment with randomly distributed dirt.
+   - Author: Awrsha
 
 ## How to Use
 
