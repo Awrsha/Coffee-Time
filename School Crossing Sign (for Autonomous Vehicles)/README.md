@@ -2,7 +2,6 @@
   <br>
    <a href="https://github.com/Coffee-Time"><img src="https://github.com/user-attachments/assets/821cbb05-21ec-4d35-8448-e43e5e29e17c" alt="Jetson Nano" width="400" height="400"></a>
    <a href="https://github.com/Coffee-Time"><img src="https://github.com/user-attachments/assets/581beb30-bb19-402a-bbb3-421378b1a197" alt="Jetson Nano" width="400" height="400"></a>
-   <a href="https://github.com/Coffee-Time"><img src="https://github.com/user-attachments/assets/e3f32747-541c-4d38-9b52-75787cda05ba" alt="Jetson Nano" width="400" height="400"></a>
   <br>
   <b><h4 align="center">.:: School Crossing Sign (for Autonomous Vehicles) ::.</h4></b>
   <br>
