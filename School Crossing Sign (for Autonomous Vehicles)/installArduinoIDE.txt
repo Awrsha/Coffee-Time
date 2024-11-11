@@ -1,0 +1,6 @@
+
+$ git clone https://github.com/JetsonHacksNano/installArduinoIDE
+
+$ cd installArduinoIDE
+
+$ ./installArduinoIDE.sh
