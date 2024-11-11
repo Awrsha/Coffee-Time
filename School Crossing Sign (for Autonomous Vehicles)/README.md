@@ -76,4 +76,4 @@ The Python code captures the video stream, processes each frame to detect school
 - **Additional Indicators**: Integrate sounds or visual warnings to simulate a real autonomous vehicle response.
 
 ## License
-This project is open-source under the MIT License. Feel free to use, modify, and distribute for personal and commercial use.
+This project is open-source under the [MIT License](https://github.com/Awrsha/Coffee-Time/blob/master/LICENSE). Feel free to use, modify, and distribute for personal and commercial use.
