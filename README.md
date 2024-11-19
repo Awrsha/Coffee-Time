@@ -114,10 +114,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Awrsha Parvizi - [@awrsha](https://github.com/Awrsha)
 
 Project Link: [https://github.com/Awrsha/Coffee-Time](https://github.com/Awrsha/Coffee-Time)
-
----
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/Awrsha">Awrsha Parvizi</a>
-</p>
-```
